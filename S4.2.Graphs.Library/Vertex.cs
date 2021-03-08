@@ -19,7 +19,7 @@ namespace S4._2.Graphs.Library
             neighbour.Neighbours.Add(this);
         }
 
-        public virtual bool HasNeighbor(Vertex<T> neighbour)
+        public virtual bool HasNeighbour(Vertex<T> neighbour)
         {
             if (neighbours.Contains(neighbour))
             {

@@ -1,6 +1,7 @@
 ﻿using S4._2.Graphs.Library;
 
 using System;
+using System.Collections.Generic;
 
 namespace S4._2.Graphs.ConsoleApp
 {
@@ -28,8 +29,21 @@ namespace S4._2.Graphs.ConsoleApp
             aalborg.AddNeighbour(billund);
             aalborg.AddNeighbour(odense);
 
-            Console.WriteLine(aalborg.ToString());
-           
+            GraphTraverser<string> graph = new(new List<Vertex<string>>() { kastrup, odense, ronne, aalborg, billund, tirstrup });
+
+            Console.WriteLine("BFS:");
+            Console.WriteLine(graph.BreadthFirstSearch(aalborg));
+
+
+            foreach (Vertex<string> vertex in graph.Vertices)
+            {
+                vertex.Visited = false;
+            }
+
+
+            Console.WriteLine("DFS:");
+            Console.WriteLine(graph.DepthFirstSearch(aalborg));
+
         }
     }
 }
