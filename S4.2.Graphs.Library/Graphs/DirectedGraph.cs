@@ -36,6 +36,7 @@ namespace S4._2.Graphs.Library.Graphs
             Edges.Add(edge);
         }
 
+
         public virtual string FindEdges(Vertex<T> vertex)
         {
             string toReturn = "";

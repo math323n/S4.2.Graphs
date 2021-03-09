@@ -1,4 +1,5 @@
 ﻿using S4._2.Graphs.Library;
+using S4._2.Graphs.Library.Graphs;
 
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace S4._2.Graphs.ConsoleApp
     {
         static void Main()
         {
-
+             
             Vertex<string> kastrup = new("Kastrup");
             Vertex<string> tirstrup = new("Tirstrup");
             Vertex<string> ronne = new("Ronne");
@@ -29,11 +30,33 @@ namespace S4._2.Graphs.ConsoleApp
             aalborg.AddNeighbour(billund);
             aalborg.AddNeighbour(odense);
 
+
+
             GraphTraverser<string> graph = new(new List<Vertex<string>>() { kastrup, odense, ronne, aalborg, billund, tirstrup });
+
+            // Test DFS searching algorithm
+            Console.WriteLine("DFS:");
+            Console.WriteLine(graph.DepthFirstSearch(aalborg));
 
             Console.WriteLine("BFS:");
             Console.WriteLine(graph.BreadthFirstSearch(aalborg));
 
+
+            DirectedGraph<string, int> directedGraph = new(new List<Vertex<string>>() { kastrup, odense, ronne, aalborg, billund, tirstrup });
+            directedGraph.AddEdge(kastrup, tirstrup, 200);
+            directedGraph.AddEdge(kastrup, ronne, 150);
+
+            directedGraph.AddEdge(aalborg, ronne, 450);
+            directedGraph.AddEdge(aalborg, billund, 152);
+            directedGraph.AddEdge(aalborg, odense, 256);
+            directedGraph.AddEdge(kastrup, billund, 300);
+            directedGraph.AddEdge(kastrup, aalborg, 456);
+
+            Console.WriteLine(directedGraph.FindEdges(kastrup));
+            Console.WriteLine(directedGraph.Vertices.Count);
+
+       
+            Console.WriteLine("Count: " + directedGraph.Edges.Count);
 
             foreach (Vertex<string> vertex in graph.Vertices)
             {
@@ -41,8 +64,12 @@ namespace S4._2.Graphs.ConsoleApp
             }
 
 
-            Console.WriteLine("DFS:");
-            Console.WriteLine(graph.DepthFirstSearch(aalborg));
+           
+         
+
+
+            // Directed graph
+            
 
         }
     }
