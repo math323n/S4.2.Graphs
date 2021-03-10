@@ -41,7 +41,7 @@ namespace S4._2.Graphs.ConsoleApp
             Console.WriteLine("BFS:");
             Console.WriteLine(graph.BreadthFirstSearch(aalborg));
 
-
+            // Directed graph
             DirectedGraph<string, int> directedGraph = new(new List<Vertex<string>>() { kastrup, odense, ronne, aalborg, billund, tirstrup });
             directedGraph.AddEdge(kastrup, tirstrup, 200);
             directedGraph.AddEdge(kastrup, ronne, 150);
@@ -52,10 +52,12 @@ namespace S4._2.Graphs.ConsoleApp
             directedGraph.AddEdge(kastrup, billund, 300);
             directedGraph.AddEdge(kastrup, aalborg, 456);
 
+            // Get the edges
             Console.WriteLine(directedGraph.FindEdges(kastrup));
+            // Count of vertex
             Console.WriteLine(directedGraph.Vertices.Count);
 
-       
+            // Count of edges 
             Console.WriteLine("Count: " + directedGraph.Edges.Count);
 
             foreach (Vertex<string> vertex in graph.Vertices)
